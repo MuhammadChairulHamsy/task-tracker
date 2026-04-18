@@ -1,7 +1,7 @@
 import fs from "fs";
 const path = "./tasks.json";
 
-// buat file json
+// create a json file
 function loadTasks() {
   if (!fs.existsSync(path)) {
     fs.writeFileSync(path, JSON.stringify([]));
@@ -9,7 +9,7 @@ function loadTasks() {
   return JSON.parse(fs.readFileSync(path));
 }
 
-// simpan ke file
+// save to file
 function saveTask(tasks) {
   fs.writeFileSync(path, JSON.stringify(tasks, null, 2));
 }
@@ -19,7 +19,7 @@ function generateId(tasks) {
   return tasks.length ? tasks[tasks.length - 1].id + 1 : 1;
 }
 
-// ambil command
+// take command
 const command = process.argv[2];
 const arg1 = process.argv[3];
 const arg2 = process.argv[4];
@@ -77,7 +77,7 @@ switch (command) {
     break;
 
   default:
-    console.log("Command tidak dikenali");
+    console.log("Command unknown");
 }
 
 function updateStatus(id, status) {
