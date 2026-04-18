@@ -1,162 +1,171 @@
-# Task Tracker CLI
+# 📝 Task CLI Tracker
 
-A simple command-line task manager that stores tasks in a local `tasks.json` file.
-
----
-
-## Requirements
-
-- [Node.js](https://nodejs.org/) v14 or higher
+A simple Command Line Interface (CLI) application to manage and track your daily tasks.
+This project is built using **Node.js** and stores data locally in a JSON file.
 
 ---
 
-## Installation
+## 🚀 Features
 
-1. Clone or download this repository.
-2. Navigate to the project folder:
+* Add new tasks
+* Update existing tasks
+* Delete tasks
+* Mark tasks as **in-progress** or **done**
+* List all tasks
+* Filter tasks by status:
+
+  * `todo`
+  * `in-progress`
+  * `done`
+
+---
+
+## 📦 Requirements
+
+Make sure you have installed:
+
+* Node.js (v14 or higher recommended)
+
+---
+
+## ⚙️ Installation
+
+1. Clone this repository:
 
 ```bash
-cd task-tracker
+git clone https://github.com/MuhammadChairulHamsy/task-cli.git
+cd task-cli
 ```
 
-3. No additional dependencies are required — only Node.js built-in modules are used.
-
----
-
-## Usage
-
-Run the program using:
+2. (Optional) Initialize npm:
 
 ```bash
-node task-tracker.js <command> [arguments]
-```
-
----
-
-## Commands
-
-### Add a Task
-
-```bash
-node task-tracker.js add "Your task description"
-```
-
-**Example:**
-
-```bash
-node task-tracker.js add "Buy groceries"
-# Output: Task added (ID: 1)
+npm init -y
 ```
 
 ---
 
-### Update a Task
+## ▶️ Usage
+
+Run the CLI using:
 
 ```bash
-node task-tracker.js update <id> "New description"
-```
-
-**Example:**
-
-```bash
-node task-tracker.js update 1 "Buy groceries and cook dinner"
-# Output: Task updated
+node task-cli.js <command> [arguments]
 ```
 
 ---
 
-### Delete a Task
+## 📌 Commands
+
+### ➕ Add a new task
 
 ```bash
-node task-tracker.js delete <id>
-```
-
-**Example:**
-
-```bash
-node task-tracker.js delete 1
-# Output: Task deleted
+node task-cli.js add "Buy groceries"
 ```
 
 ---
 
-### Mark a Task as In Progress
+### ✏️ Update a task
 
 ```bash
-node task-tracker.js mark-in-progress <id>
-```
-
-**Example:**
-
-```bash
-node task-tracker.js mark-in-progress 1
-# Output: Task marked as in-progress
+node task-cli.js update 1 "Buy groceries and cook dinner"
 ```
 
 ---
 
-### Mark a Task as Done
+### ❌ Delete a task
 
 ```bash
-node task-tracker.js mark-done <id>
-```
-
-**Example:**
-
-```bash
-node task-tracker.js mark-done 1
-# Output: Task marked as done
+node task-cli.js delete 1
 ```
 
 ---
 
-### List Tasks
-
-List all tasks:
+### 🔄 Mark task as in progress
 
 ```bash
-node task-tracker.js list
-```
-
-List tasks by status (`todo`, `in-progress`, or `done`):
-
-```bash
-node task-tracker.js list <status>
-```
-
-**Examples:**
-
-```bash
-node task-tracker.js list
-node task-tracker.js list todo
-node task-tracker.js list in-progress
-node task-tracker.js list done
+node task-cli.js mark-in-progress 1
 ```
 
 ---
 
-## Task Properties
+### ✅ Mark task as done
 
-Each task contains the following fields:
-
-| Field         | Description                              |
-|---------------|------------------------------------------|
-| `id`          | Unique identifier (auto-incremented)     |
-| `description` | Task description                         |
-| `status`      | Current status: `todo`, `in-progress`, or `done` |
-| `createdAt`   | Timestamp when the task was created      |
-| `updatedAt`   | Timestamp when the task was last updated |
+```bash
+node task-cli.js mark-done 1
+```
 
 ---
 
-## Data Storage
+### 📋 List all tasks
 
-All tasks are saved in a `tasks.json` file in the same directory as the script. The file is created automatically on first run.
+```bash
+node task-cli.js list
+```
 
 ---
 
-## Notes
+### 🔍 Filter tasks by status
 
-- Task IDs are assigned automatically and increment sequentially.
-- If a task ID does not exist, the program will display `Task not found`.
-- Unrecognized commands will display `Command tidak dikenali`.
+```bash
+node task-cli.js list todo
+node task-cli.js list in-progress
+node task-cli.js list done
+```
+
+---
+
+## 🗂️ Task Structure
+
+Each task is stored with the following properties:
+
+```json
+{
+  "id": 1,
+  "description": "Buy groceries",
+  "status": "todo",
+  "createdAt": "2026-01-01T10:00:00.000Z",
+  "updatedAt": "2026-01-01T10:00:00.000Z"
+}
+```
+
+---
+
+## 📁 Data Storage
+
+* All tasks are stored in a local file:
+
+```
+tasks.json
+```
+
+* The file will be created automatically if it does not exist.
+
+---
+
+## ⚠️ Notes
+
+* Make sure to provide valid task IDs when updating or deleting.
+* Commands are case-sensitive.
+* Do not manually edit `tasks.json` while the program is running.
+
+---
+
+## 🛠️ Future Improvements
+
+* Add search functionality
+* Add pagination
+* Convert to global CLI command (`npm link`)
+* Add colored output in terminal
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Hamsy**
+
+---
+
+## 📄 License
+
+This project is open-source and free to use.
